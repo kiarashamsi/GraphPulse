@@ -1562,7 +1562,7 @@ class NetworkParser:
                 print("Processing {} / {} \n".format(self.processingIndx, len(files) - 4))
                 p = Process(target=self.create_time_series_for_other_dataset_rnn_sequence, args=(file,))  # make process
                 p.start()  # start function
-                p.join(timeout=68000000000)
+                p.join(timeout=68000)
 
                 # Check if the process is still running
                 if p.is_alive():
