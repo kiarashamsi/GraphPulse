@@ -2,7 +2,7 @@
 
 This repository contains the implementation of GraphPulse, a framework for temporal graph property prediction. GraphPulse combines topological data analysis with recurrent neural networks to effectively predict the evolution of temporal graphs.
 
-## Abstract
+## Overview
 
 Many real-world networks evolve over time, and predicting the evolution of such networks remains a challenging task. Graph Neural Networks (GNNs) have shown empirical success for learning on static graphs, but they lack the ability to effectively learn from nodes and edges with different timestamps. Consequently, the prediction of future properties in temporal graphs remains a relatively under-explored area.
 
