@@ -3,4 +3,5 @@
 /Scripts
 pyvenv.cfg
 /share
-/test.py
+.gitignore
+test.py
