@@ -1,7 +1,7 @@
 # created by virtualenv automatically
+.gitignore
+test.py
 /Lib
 /Scripts
 pyvenv.cfg
 /share
-.gitignore
-test.py
