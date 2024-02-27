@@ -1,5 +1,6 @@
-
-![](https://github.com/kiarashamsi/GraphPulse/blob/master/image/Graphpulse.png)
+<p align="center">
+  <img width="600" height="200" src="https://github.com/kiarashamsi/GraphPulse/blob/master/image/Graphpulse.png">
+</p>
 
 # GraphPulse: Topological Representations for Temporal Graph Property Prediction
 
