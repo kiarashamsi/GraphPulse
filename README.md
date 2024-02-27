@@ -10,8 +10,9 @@ In this project, we aim to bridge this gap by introducing a principled framework
 
 Through extensive experimentation, we demonstrate that our model enhances the ROC-AUC metric by 10.2% in comparison to the top-performing state-of-the-art method across various temporal networks.
 
-![Graphpulse system overview](https://github.com/kiarashamsi/GraphPulse/blob/master/image/System-overview%20(4).png
-)
+![](https://github.com/kiarashamsi/GraphPulse/blob/master/image/System-overview%20(4).png)
+*Graphpulse system overview*
+
 
 
 ### Analyzer Package
