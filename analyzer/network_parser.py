@@ -14,7 +14,6 @@ import kmapper as km
 import sklearn
 from sklearn.preprocessing import MinMaxScaler
 import pickle
-
 from util.graph_util import from_networkx
 
 '''
@@ -587,21 +586,6 @@ class NetworkParser:
                 to_node_features_with_daily_temporal_vector["dailyClusterID"] = [-1] * windowSize
                 to_node_features_with_daily_temporal_vector["dailyClusterSize"] = [-1] * windowSize
 
-                # # feature 5 -> max outgoing edge weight
-                # from_node_features["outgoing_edge_weight_max"] = selectedNetwork.groupby(by=['from'])['value'].max
-                # # feature 6 -> max incoming edge weight
-                # from_node_features["incoming_edge_weight_max"] = selectedNetwork.groupby(by=['from'])['value'].max
-                # to_node_features["incoming_edge_weight_max"] = selectedNetwork.groupby(by=['from'])['value'].max
-                # # feature 7 -> min outgoing edge weight
-                # from_node_features["outgoing_edge_weight_min"] = selectedNetwork.groupby(by=['from'])['value'].min
-                # to_node_features["outgoing_edge_weight_min"] = selectedNetwork.groupby(by=['from'])['value'].min
-                # # feature 8 -> min incoming edge weight
-                # from_node_features["incoming_edge_weight_min"] = selectedNetwork.groupby(by=['from'])['value'].min
-                # to_node_features["incoming_edge_weight_min"] = selectedNetwork.groupby(by=['from'])['value'].min
-
-                # transactionGraph.add_nodes_from([(item["from"], from_node_features)])
-                # transactionGraph.add_nodes_from([(item["to"], to_node_features)])
-                # transactionGraph.add_edge(item["from"], item["to"], value=item["value"])
 
                 # Temporal version
                 transactionGraph.add_nodes_from([(item["from"], from_node_features_with_daily_temporal_vector)])
@@ -1249,27 +1233,6 @@ class NetworkParser:
                             originalGraphWithTemporalVector.nodes[daily_node_features.iloc[nodeIndx]["nodeID"]][
                                 "dailyClusterSize"][processingDay] = len(dailyTdaGraph["nodes"][cluster])
 
-                            # if 'dailyClusterID' in originalGraphWithTemporalVector.nodes[
-                            #     daily_node_features.iloc[nodeIndx]["nodeID"]]:
-                            #     originalGraphWithTemporalVector.nodes[daily_node_features.iloc[nodeIndx]["nodeID"]][
-                            #         "dailyClusterID"] = list(
-                            #         originalGraphWithTemporalVector.nodes[daily_node_features.iloc[nodeIndx]["nodeID"]][
-                            #             "dailyClusterID"]) + list(dailyTdaGraph["nodes"].keys()).index(cluster)
-                            # else:
-                            #     # Getting the cluster ID (Index in the dictionary -- the clusters are sorted)
-                            #     originalGraphWithTemporalVector.nodes[daily_node_features.iloc[nodeIndx]["nodeID"]][
-                            #         "dailyClusterID"] = [
-                            #         list(dailyTdaGraph["nodes"].keys()).index(cluster)]
-                            #
-                            # if 'dailyClusterSize' in originalGraphWithTemporalVector.nodes[
-                            #     daily_node_features.iloc[nodeIndx]["nodeID"]]:
-                            #     originalGraphWithTemporalVector.nodes[daily_node_features.iloc[nodeIndx]["nodeID"]][
-                            #         "dailyClusterSize"] = list(
-                            #         originalGraphWithTemporalVector.nodes[daily_node_features.iloc[nodeIndx]["nodeID"]][
-                            #             "dailyClusterID"]) + list(len(dailyTdaGraph["nodes"][cluster]))
-                            # else:
-                            #     originalGraphWithTemporalVector.nodes[daily_node_features.iloc[nodeIndx]["nodeID"]][
-                            #         "dailyClusterSize"] = [len(dailyTdaGraph["nodes"][cluster])]
 
                             capturedNode.append(nodeIndx)
 
@@ -1458,17 +1421,13 @@ class NetworkParser:
             clusterer=sklearn.cluster.KMeans(n_clusters=cls, random_state=1618033),
             cover=km.Cover(n_cubes=n_cubes, perc_overlap=per_overlap))  # 0.2 0.4
 
+        # Visualizing the mapper
         # mapper.visualize(dailyTdaGraph,
         #                  path_html= "Adex_first_7_days.HTML",
         #                  title="Mapper graph for network")
 
         # extract the cluster size and cluster ID vector out of that
 
-        # - Number of nodes   AUC = 89.32
-        # - Number of edges   AUC = 91.54
-        # - Max Cluster size  AUC = 39.96
-        # - AVG Clsuter size  AUC = 86.90
-        # - AVG edge weight   AUC = 82.97
         maxClusterSize = 0
         average_cluster_size = 0
         average_edge_weight = 0
