@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="400" height="300" src="https://github.com/kiarashamsi/GraphPulse/blob/master/image/Graphpulse.png">
+  <img width="200" height="200" src="https://github.com/kiarashamsi/GraphPulse/blob/master/image/Graphpulse.png">
 </p>
 
 # GraphPulse: Topological Representations for Temporal Graph Property Prediction
