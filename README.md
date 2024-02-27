@@ -1,3 +1,6 @@
+
+![](https://github.com/kiarashamsi/GraphPulse/blob/master/image/Graphpulse.png)
+
 # GraphPulse: Topological Representations for Temporal Graph Property Prediction
 
 This repository contains the implementation of GraphPulse, a framework for temporal graph property prediction. GraphPulse combines topological data analysis with recurrent neural networks to effectively predict the evolution of temporal graphs.
