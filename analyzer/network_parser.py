@@ -78,7 +78,7 @@ class NetworkParser:
 
         for timeFrame in self.timeWindow:
             print("\nProcessing Timeframe {} ".format(timeFrame))
-            transactionGraph = nx.DiGraph()
+            transactionGraph = nx.MultiDiGraph()
             start_date = selectedNetwork['date'].min()
             last_date_of_data = selectedNetwork['date'].max()
             # check if the network has more than 20 days of data
