@@ -55,7 +55,9 @@ def read_seq_data_by_file_name(network, file):
         dict: A dictionary containing the loaded sequence data.
     """
 
-    file_path = "Sequence/{}/".format(network)
+    import os
+
+    file_path = "C:/Users/kiara/Desktop/MyProject/GraphPulse/data/Sequences/{}/".format(network)
     seqData = dict()
     with open(file_path + file, 'rb') as f:
         seqData = pickle.load(f)
@@ -112,7 +114,7 @@ def LSTM_classifier(data, labels, spec, network):
         if ("ablation" in spec):
             model_LSTM.add(LSTM(64, input_shape=(7, 4), return_sequences=True))  # Adjust the number of units as needed
         else:
-            model_LSTM.add(LSTM(64, input_shape=(7, 5), return_sequences=True))  # Adjust the number of units as needed
+            model_LSTM.add(LSTM(64, input_shape=(7, 8), return_sequences=True))  # Adjust the number of units as needed
     elif ("TDA5" in spec):
         if ("ablation" in spec):
             model_LSTM.add(LSTM(64, input_shape=(7, 4), return_sequences=True))  # Adjust the number of units as needed
@@ -200,7 +202,7 @@ if __name__ == "__main__":
             print(f"RUN {run}")
             # for tdaVariable in tdaDifferentGraph:
             print("Working on {}\n".format(network))
-            data = read_seq_data_by_file_name(network, "seq_tda_ablation.txt")
+            data = read_seq_data_by_file_name(network, "seq_tda.txt")
             data_raw = read_seq_data_by_file_name(network, "seq_raw.txt")
 
             indxs = []
@@ -210,9 +212,7 @@ if __name__ == "__main__":
 
             # indx = 0
             for key, value in data["sequence"].items():
-                # if (indx == 1):
-                #     break
-
+           
                 if ("overlap" in key):
                     print("Processing network ({}) - with parameters {}".format(network, key))
                     np_labels = np.array(data["label"])
